@@ -1,0 +1,16 @@
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+body {
+    font-size: 18px;
+    font-family: Arial;
+  }
