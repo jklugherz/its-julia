@@ -1,9 +1,12 @@
+import img from 'file-loader!../img/IMG_8019.JPG';
+console.log(img);
 
-const appReducer = (state = {photo: ''}, action) => {
+const appReducer = (state = {img: ' '}, action) => {
     const newState = Object.assign({}, state);
     switch (action.type) {
-        case 'THING_CLICK':
-            newState.photo = action.input;
+        case 'BUTTON_CLICK':
+            console.log(img);
+            newState.img = img;
             return newState;
         default:
             return state;

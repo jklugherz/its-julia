@@ -1,39 +1,38 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import Thing from '../components/Thing';
-import img from 'file-loader!../img/DSC_7856.NEF.jpeg'
+import Button from '../components/Button';
 
 
-class ThingContainer extends React.Component {
+class ButtonContainer extends React.Component {
 
   render() {
     return (
       <div>
-        <Thing onClick={(input) => this.onClick(input)}/>
+        <Button onClick={() => this.props.onClick()} img={this.props.img}/>
       </div>
     )
   }
 };
 
-ThingContainer.PropTypes = {
-  photo: PropTypes.string,
+ButtonContainer.PropTypes = {
+  img: PropTypes.string,
   onClick: PropTypes.func
 }
 
 const mapStateToProps = (state) => {
     return {
-        photo: state.appState.photo
+        img: state.appState.img
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClick: (photo) => dispatch({type: 'THING_CLICK', photo})
+        onClick: () => dispatch({type: 'BUTTON_CLICK'})
     };
 };
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ThingContainer);
+)(ButtonContainer);

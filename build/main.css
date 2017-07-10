@@ -8,9 +8,22 @@ h1 {
   display: flex;
   justify-content: center;
   padding: 20px;
+  align-items: center;
 }
 
 body {
     font-size: 18px;
     font-family: Arial;
   }
+
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+transform: rotate(90deg);
+}

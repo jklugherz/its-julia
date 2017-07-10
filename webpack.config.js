@@ -17,13 +17,37 @@ module.exports = {
             presets: ['es2015', 'react']
           }
         }
-      },{
-        test: /\.(jpg|png|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[hash].[ext]',
-        },
       },
+      {
+        test: /\.(svg|jpe?g|png|gif|ico)(\?{0}(?=\?|$))/,
+         use: [
+           {
+      loader: 'file-loader',
+      options: {
+        query: {
+          name:'/app/img/[name].[ext]'
+        }
+      }
+    },
+    {
+      loader: 'image-webpack-loader',
+      options: {
+        query: {
+          mozjpeg: {
+            progressive: true,
+          },
+          gifsicle: {
+            interlaced: true,
+          },
+          optipng: {
+            optimizationLevel: 7,
+          }
+        }
+      }
+    }
+
+         ]
+}
     ]
   },
   stats: {
